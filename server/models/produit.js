@@ -19,7 +19,7 @@ Produit.init(
     rayon: {
       type: DataTypes.INTEGER,
     },
-    quantité: {
+    quantite: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
