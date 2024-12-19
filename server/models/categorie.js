@@ -17,4 +17,4 @@ Categorie.init(
   }
 );
 
-module.exports = Animal;
+module.exports = Categorie;
