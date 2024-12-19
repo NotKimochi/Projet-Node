@@ -18,6 +18,16 @@ app.use(
   /** only user routes are protected **/ /*checkAuth,*/ require("./routes/users")
 );
 
+app.use(require("./routes/produit"));
+app.use(
+  /** only user routes are protected **/ /*checkAuth,*/ require("./routes/produit")
+);
+
+app.use(require("./routes/orderProducts"));
+app.use(
+  /** only user routes are protected **/ /*checkAuth,*/ require("./routes/orderProducts")
+);
+
 app.use((error, req, res, next) => {
   console.error(error);
   res.sendStatus(500);
