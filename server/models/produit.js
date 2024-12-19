@@ -9,19 +9,19 @@ Produit.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    prix: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-      validate: {
-        min: 0,
-      },
-    },
     rayon: {
       type: DataTypes.INTEGER,
     },
     quantite: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
+    },
+    prix: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
+      validate: {
+        min: 0,
+      },
     },
   },
   {
