@@ -11,6 +11,9 @@ Produit.init(
     },
     rayon: {
       type: DataTypes.INTEGER,
+      validate:{
+        min: 1,
+      }
     },
     quantite: {
       type: DataTypes.INTEGER,
