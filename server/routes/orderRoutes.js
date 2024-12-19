@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const orderController = require("../controllers/orderController");
-// const authMiddleware = require("../middlewares/authMiddleware"); // Middleware pour sécuriser les routes
+const authMiddleware = require("../middlewares/checkAuth"); // Middleware pour sécuriser les routes
 
 // Routes pour Order
 router.post("/", authMiddleware, orderController.createOrder);
