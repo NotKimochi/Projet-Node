@@ -3,7 +3,7 @@ const connection = require("./db");
 
 class Categorie extends Model {}
 
-Animal.init(
+Categorie.init(
   {
     name: {
       type: DataTypes.STRING,
