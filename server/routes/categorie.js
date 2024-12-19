@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const AnimalController = require("../controllers/categorie");
+const CategorieController = require("../controllers/categorie");
 
 const router = new Router();
 
