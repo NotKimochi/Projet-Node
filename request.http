@@ -1,0 +1,37 @@
+# 1. Créer une commande
+POST http://localhost:3000/orders
+Content-Type: application/json
+Authorization: Bearer MyVeryVeryVeryFormidableSecret&1L1kE17
+
+{
+    "userId": 1,
+    "total": 100.50
+}
+
+###
+# 2. Récupérer toutes les commandes
+GET http://localhost:3000/orders
+Authorization: Bearer c-dAuDFQrdjS3hezqxDTNgW7AOlYk
+
+###
+# 3. Récupérer une commande spécifique (par ID)
+GET http://localhost:3000/orders/1
+Authorization: Bearer MyVeryVeryVeryFormidableSecret&1L1kE17
+
+###
+# 4. Mettre à jour une commande spécifique (si la fonctionnalité est implémentée)
+PATCH http://localhost:3000/orders/1
+Content-Type: application/json
+Authorization: Bearer MyVeryVeryVeryFormidableSecret&1L1kE17
+
+{
+    "total": 150.75
+}
+
+###
+# 5. Supprimer une commande (si la fonctionnalité est implémentée)
+DELETE http://localhost:3000/orders/1
+Authorization: Bearer MyVeryVeryVeryFormidableSecret&1L1kE17
+
+###
+GET http://localhost:3000/
