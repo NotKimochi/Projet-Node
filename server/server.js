@@ -1,32 +1,29 @@
 const express = require("express");
 const checkAuth = require("./middlewares/checkAuth");
+const securityRoutes = require("./routes/security");
+const categorieRoutes = require("./routes/categorie");
+const userRoutes = require("./routes/users");
+const produitRoutes = require("./routes/produit");
+const orderRoutes = require("./routes/orderRoutes");
 
 const app = express();
 
-app.get("/", (request, response, next) => {
-  response.send("Hello world !!");
+// Middleware global pour parser les requêtes JSON
+app.use(express.json());
+
+// Route de test (non protégée)
+app.get("/", (req, res) => {
+  res.send("Hello world !!");
 });
 
-//app.use(parseBody);
-app.use(express.json() /* body-parser lib */);
-app.use(require("./routes/security"));
+// Routes publiques
+app.use(securityRoutes);
 
-// All routes are protected
-//app.use(checkAuth);
-app.use(require("./routes/categorie"));
-app.use(
-  /** only user routes are protected **/ /*checkAuth,*/ require("./routes/users")
-);
-
-app.use(require("./routes/produit"));
-app.use(
-  /** only user routes are protected **/ /*checkAuth,*/ require("./routes/produit")
-);
-
-app.use(require("./routes/orderProducts"));
-app.use(
-  /** only user routes are protected **/ /*checkAuth,*/ require("./routes/orderProducts")
-);
+// Routes protégées par `checkAuth`
+app.use(checkAuth, categorieRoutes);
+app.use(checkAuth, userRoutes);
+app.use(checkAuth, produitRoutes);
+app.use(checkAuth, orderRoutes);
 
 app.use((error, req, res, next) => {
   console.error(error);
